@@ -2,7 +2,6 @@ package com.mintyplays.minty.ui.altmanager;
 
 import java.net.Proxy;
 
-import com.mintyplays.minty.Minty;
 import com.mojang.authlib.Agent;
 import com.mojang.authlib.exceptions.AuthenticationException;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
@@ -57,8 +56,6 @@ extends Thread {
         if (auth == null) {
             this.status = (Object)((Object)EnumChatFormatting.RED) + "Login failed!";
         } else {
-            AltManager altManager = Minty.instance.altManager;
-            AltManager.lastAlt = new Alt(this.username, this.password);
             this.status = (Object)((Object)EnumChatFormatting.GREEN) + "Logged in. (" + auth.getUsername() + ")";
             this.mc.session = auth;
         }
